@@ -1,52 +1,39 @@
 import React, { useState } from 'react';
 import './App.css';
-import ListItem from './components/ListItem';
 import Header from './components/Header';
 import QuemSou from './components/QuemSou';
 import styled from 'styled-components';
+import Projetos from './components/Projetos';
 
 const Container = styled.div`
   margin: 0 100px;
 `;
 
 function App() {
-  const [toDos, setToDos] = useState([
+  const [projects, setProjects] = useState([
     {
       id: 1,
-      name: "Develop my Site",
-      description: "Develop my portifolio Web Site to show my skills",
-      completed: false
+      name: "Quests of Wisllow",
+      description: "Quests of Wisllow é um adventure/casual game 3D desenvolvido para Android. O jogo conta a história de Andrew, um jovem gamer que foi capturado pelo misterioso mago Wisllow e levado para outra dimensão. Para poder retornar para seu mundo, Andrew deve completar as tarefas dadas pelo mago.",
+      image: '/projetos/QuestsOfWisllowLogo.png',
+      link: 'https://play.google.com/store/apps/details?id=com.Bugnatron.QuestsofWisllow',
+      published: true
     },
     {
       id: 2,
-      name: "Develop AR press kit for my TCC",
-      description: "Develop AR press kit to show on my TCC.",
-      completed: false
-    },
-    {
-      id: 3,
-      name: "Study React",
-      description: "Study React again to remember",
-      completed: true
+      name: "Cold Runner",
+      description: "Cold Runner é um endless runner / platformer game 2D desenvolvido em 2 semanas para uma Game Jam. Divirta-se jogando e correndo com esse carinha pegando fogo.",
+      image: '/projetos/ColdRunner.png',
+      link: 'https://garahorn.itch.io/cold-runner',
+      published: true
     }
   ]);
-
-  const updateToDo = id => {
-    const toDosClone = [...toDos];
-    
-    toDosClone.map(toDoClone => {
-      if (toDoClone.id === id) {
-        toDoClone.completed = !toDoClone.completed;
-      }
-    });
-    
-    setToDos(toDosClone);
-  }
 
   return <div className="App">
     <Header/>
     <Container>
       <QuemSou/>
+      <Projetos projects={projects}/>
     </Container>
   </div>;
 }
