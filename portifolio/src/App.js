@@ -3,6 +3,11 @@ import './App.css';
 import ListItem from './components/ListItem';
 import Header from './components/Header';
 import QuemSou from './components/QuemSou';
+import styled from 'styled-components';
+
+const Container = styled.div`
+  margin: 0 100px;
+`;
 
 function App() {
   const [toDos, setToDos] = useState([
@@ -40,16 +45,9 @@ function App() {
 
   return <div className="App">
     <Header/>
-    <QuemSou/>
-    <ul>
-      {toDos.map(toDo => {
-        return <ListItem 
-          key={toDo.id} 
-          toDo={toDo}
-          handleOnClick={updateToDo}
-        />
-      })}
-    </ul>
+    <Container>
+      <QuemSou/>
+    </Container>
   </div>;
 }
 

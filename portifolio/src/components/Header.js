@@ -10,6 +10,10 @@ const Container = styled.div`
 		color: white;
 		font-size: 22px;
 		text-decoration: none;
+
+		&:hover {
+			color: #ed145b;
+		}
 	}
 `;
 
