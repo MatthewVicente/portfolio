@@ -27,15 +27,12 @@ const Project = styled.div`
 
 	.descricao {
 		margin: 0 20px;
-		width: 50%;
 		font-size: 20px;
 	}
 
 	.title-desc {
 		display: flex;
-		flex-direction: column;
 		justify-content: center;
-		align-items: center;
 
 		.title {
 			color: #ed145b; 
@@ -56,11 +53,13 @@ const Projetos = ({ projects }) => {
 						<img src={process.env.PUBLIC_URL+'/img'+project.image} alt=""/>
 					</div>
 					<div className={project.id % 2 == 1 ? 'desc-container title-desc' : 'title-desc'}>
-						<div className="title">
-							{project.title}
-						</div>
-						<div className="descricao">
-							{project.description}
+						<div>
+							<div className="title">
+								{project.title}
+							</div>
+							<div className="descricao">
+								{project.description}
+							</div>
 						</div>
 					</div>
 				</Project>
