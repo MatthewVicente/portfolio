@@ -14,7 +14,7 @@ function App() {
   const [projects, setProjects] = useState([
     {
       id: 1,
-      name: "Quests of Wisllow",
+      title: "Quests of Wisllow",
       description: "Quests of Wisllow é um adventure/casual game 3D desenvolvido para Android. O jogo conta a história de Andrew, um jovem gamer que foi capturado pelo misterioso mago Wisllow e levado para outra dimensão. Para poder retornar para seu mundo, Andrew deve completar as tarefas dadas pelo mago.",
       image: '/projetos/QuestsOfWisllowLogo.png',
       link: 'https://play.google.com/store/apps/details?id=com.Bugnatron.QuestsofWisllow',
@@ -22,7 +22,7 @@ function App() {
     },
     {
       id: 2,
-      name: "Cold Runner",
+      title: "Cold Runner",
       description: "Cold Runner é um endless runner / platformer game 2D desenvolvido em 2 semanas para uma Game Jam. Divirta-se jogando e correndo com esse carinha pegando fogo.",
       image: '/projetos/ColdRunner.png',
       link: 'https://garahorn.itch.io/cold-runner',
