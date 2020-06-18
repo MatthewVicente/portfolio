@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './App.css';
 import Header from './components/Header';
+import Footer from './components/Footer';
 import QuemSou from './components/QuemSou';
 import styled from 'styled-components';
 import Projetos from './components/Projetos';
@@ -35,6 +36,7 @@ function App() {
       <QuemSou/>
       <Projetos projects={projects}/>
     </Container>
+    <Footer />
   </div>;
 }
 
