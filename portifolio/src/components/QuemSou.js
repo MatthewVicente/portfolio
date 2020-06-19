@@ -16,6 +16,13 @@ const Container = styled.div`
 	.descricao {
 		width: 50%;
 	}
+
+	@media only screen and (max-width: 600px) {
+		.descricao {
+			width: 100%;
+			font-size: 16px;
+		}
+	}
 `;
 
 const QuemSou = () => {

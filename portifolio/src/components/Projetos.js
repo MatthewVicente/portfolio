@@ -48,7 +48,17 @@ const Project = styled(Row)`
 
 	@media only screen and (max-width: 600px) {
 		img {
-			width: 250px;
+			width: 300px;
+		}
+
+		.title-desc {
+			.title {
+				margin: 10px 0;
+			}
+
+			.descricao {
+				font-size: 16px;
+			}
 		}
 	}
 `;
