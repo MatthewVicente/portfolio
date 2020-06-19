@@ -34,11 +34,16 @@ const Project = styled.div`
 		display: flex;
 		justify-content: center;
 
-		.title {
+		.title a {
 			color: #ed145b; 
 			font-size: 25px;
 			font-weight: bold;
 			margin-bottom: 10px;
+			text-decoration: none;
+
+			&:hover {
+				text-decoration: underline;
+			}
 		}
 	}
 `;
@@ -50,12 +55,16 @@ const Projetos = ({ projects }) => {
 			{projects.map(project => {
 				return <Project key={project.id} className={project.id % 2 == 0 ? 'reverse' : ''}>
 					<div>
-						<img src={process.env.PUBLIC_URL+'/img'+project.image} alt=""/>
+						<a href={project.link} target="_blank">
+							<img src={process.env.PUBLIC_URL+'/img'+project.image} alt=""/>
+						</a>
 					</div>
 					<div className={project.id % 2 == 1 ? 'desc-container title-desc' : 'title-desc'}>
 						<div>
 							<div className="title">
-								{project.title}
+								<a href={project.link} target="_blank">
+									{project.title}
+								</a>
 							</div>
 							<div className="descricao">
 								{project.description}
