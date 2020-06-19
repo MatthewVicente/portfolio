@@ -19,9 +19,9 @@ const Container = styled.div`
 
 const Header = () => {
   return <Container>
-		<a href="#QuemSou">Quem sou</a>
-		<a href="#Projetos">Projetos</a>
-		<a href="#Contato">Contato</a>
+		<a href="#quemSou">Quem sou</a>
+		<a href="#projetos">Projetos</a>
+		<a href="#contato">Contato</a>
 	</Container>
 }
 
