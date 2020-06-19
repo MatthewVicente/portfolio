@@ -5,13 +5,14 @@ import Footer from './components/Footer';
 import QuemSou from './components/QuemSou';
 import styled from 'styled-components';
 import Projetos from './components/Projetos';
+import Contato from './components/Contato';
 
 const Container = styled.div`
   margin: 0 100px;
 `;
 
 function App() {
-  const [projects, setProjects] = useState([
+  const [projects] = useState([
     {
       id: 1,
       title: "Quests of Wisllow",
@@ -35,6 +36,7 @@ function App() {
     <Container>
       <QuemSou/>
       <Projetos projects={projects}/>
+      <Contato/>
     </Container>
     <Footer />
   </div>;
