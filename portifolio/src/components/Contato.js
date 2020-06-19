@@ -19,6 +19,7 @@ const ContatoContainer = styled.div`
   }
 
   .submit-button {
+    text-align: end;
     margin-top: 30px;
   }
 `;

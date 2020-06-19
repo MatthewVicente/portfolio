@@ -6,10 +6,7 @@ import QuemSou from './components/QuemSou';
 import styled from 'styled-components';
 import Projetos from './components/Projetos';
 import Contato from './components/Contato';
-
-const Container = styled.div`
-  margin: 0 100px;
-`;
+import { Container } from "reactstrap";
 
 function App() {
   const [projects] = useState([

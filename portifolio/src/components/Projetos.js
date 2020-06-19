@@ -6,8 +6,7 @@ const Container = styled.div`
 	margin-top: 50px;
 `;
 
-const Project = styled.div`
-	display: flex;
+const Project = styled(Row)`
 	margin: 70px 0;
 
 	&.reverse {
@@ -46,6 +45,12 @@ const Project = styled.div`
 			}
 		}
 	}
+
+	@media only screen and (max-width: 600px) {
+		img {
+			width: 250px;
+		}
+	}
 `;
 
 const Projetos = ({ projects }) => {
@@ -53,13 +58,13 @@ const Projetos = ({ projects }) => {
 		<h1 id="projetos">Projetos</h1>
 		<Row className="projetos">
 			{projects.map(project => {
-				return <Project key={project.id} className={project.id % 2 == 0 ? 'reverse' : ''}>
-					<div>
+				return <Project key={project.id} className={project.id % 2 === 0 ? 'reverse' : ''}>
+					<Col md="6" xs="12">
 						<a href={project.link} target="_blank">
 							<img src={process.env.PUBLIC_URL+'/img'+project.image} alt=""/>
 						</a>
-					</div>
-					<div className={project.id % 2 == 1 ? 'desc-container title-desc' : 'title-desc'}>
+					</Col>
+					<Col md="6" xs="12" className={project.id % 2 === 1 ? 'desc-container title-desc' : 'title-desc'}>
 						<div>
 							<div className="title">
 								<a href={project.link} target="_blank">
@@ -70,7 +75,7 @@ const Projetos = ({ projects }) => {
 								{project.description}
 							</div>
 						</div>
-					</div>
+					</Col>
 				</Project>
 			})}
 		</Row>
