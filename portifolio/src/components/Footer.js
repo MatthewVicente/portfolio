@@ -2,7 +2,9 @@ import React from "react";
 import styled from "styled-components";
 import { Row, Col } from "reactstrap";
 
-const FooterContainer = styled(Row)`
+const FooterContainer = styled.div`
+	display: flex;
+	justify-content: space-between;
 	width: 100%;
 	height: 60px;
 	background-color: #ed145b;
@@ -16,13 +18,13 @@ const FooterContainer = styled(Row)`
 			text-align: left;
 
 			img {
-				width 6%;
+				width 5%;
 			}
 		}
 	
 		.linkedin {
 			img {
-				width: 35%;
+				width: 30%;
 				margin-right: 10px;
 			}
 		}
@@ -35,16 +37,23 @@ const FooterContainer = styled(Row)`
 		justify-content: flex-end;
 
 		img {
-			width: 5%;
+			width: 15%;
 			margin-right: 10px;
 		}
 	}
 
 	@media only screen and (max-width: 600px) {
+		display: flex;
 		.social {
-			display: block;
+			width: 50%;
 			.linkedin {
 				margin-left: 10px;
+				img {
+					width: 150%;
+				}
+			}
+			.github {
+				margin-left: 30px;
 				img {
 					width: 25%;
 				}
@@ -52,14 +61,19 @@ const FooterContainer = styled(Row)`
 		}
 
 		.contato {
+			width: 50%;
+			font-size: 16px;
 
+			img {
+				width: 20%;
+			}
 		}
 	}
 `;
 
 const Footer = () => {
 	return <FooterContainer>
-		<Col md="6" className="social">
+		<div className="social">
 			<div className="linkedin">
 				<a href="https://www.linkedin.com/in/matheus-vicente-b87957180/" target="_blank">
 					<img src={process.env.PUBLIC_URL+'/img/linkedinLogo.svg'} alt="" />
@@ -70,11 +84,11 @@ const Footer = () => {
 					<img src={process.env.PUBLIC_URL+'/img/githubLogo.svg'} alt="" />
 				</a>
 			</div>
-		</Col>
-		<Col md="6" className="contato">
+		</div>
+		<div className="contato">
 			<img src={process.env.PUBLIC_URL+'/img/phone.svg'} alt="" />
 			<span>(11) 98975-9354</span>
-		</Col>
+		</div>
 	</FooterContainer>
 }
 

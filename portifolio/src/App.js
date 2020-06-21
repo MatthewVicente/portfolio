@@ -3,7 +3,6 @@ import './App.css';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import QuemSou from './components/QuemSou';
-import styled from 'styled-components';
 import Projetos from './components/Projetos';
 import Contato from './components/Contato';
 import { Container } from "reactstrap";
