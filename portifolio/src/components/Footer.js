@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Row, Col } from "reactstrap";
 
 const FooterContainer = styled.div`
 	display: flex;
