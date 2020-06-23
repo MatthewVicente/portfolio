@@ -43,13 +43,6 @@ const Error = styled.div`
 `;
 
 const Contato = () => {
-
-  const [contato, setContato] = useState({
-    nome: '',
-    email: '',
-    telefone: '',
-    message: ''
-  });
   const [enviando, setEnviando] = useState(false);
 
   const { register, handleSubmit, errors } = useForm();
@@ -70,13 +63,6 @@ const Contato = () => {
         console.log(error.text);
       });
   }
-      
-  let handleChange = (e) => {
-    let nome = e.target.name;
-    let value = e.target.value;
-    contato[nome] = value;
-    setContato(contato);
-  }
 
   return <ContatoContainer>
     <h1 id="contato">Contato</h1>
@@ -86,23 +72,23 @@ const Contato = () => {
           <Col md="6" xs="12">
             <Col md="12">
               <Label for="email">Email*:</Label>
-              <input onChange={handleChange} type="email" name="email" id="email" placeholder="E.x.: email@email.com" ref={register({ required: true })}/>
+              <input type="email" name="email" id="email" placeholder="E.x.: email@email.com" ref={register({ required: true })}/>
               {errors.email && <Error>Por favor, preencha o campo Email</Error>}
             </Col>
             <Col md="12">
               <Label for="nome">Nome*:</Label>
-              <input onChange={handleChange} name="nome" id="nome" ref={register({ required: true })}/>
+              <input name="nome" id="nome" ref={register({ required: true })}/>
               {errors.nome && <Error>Por favor, preencha o campo Nome</Error>}
             </Col>
             <Col md="12">
               <Label>Telefone:</Label>
-              <input onChange={handleChange} name="telefone" ref={register}/>
+              <input name="telefone" ref={register}/>
               {errors.telefone && <Error>Por favor, preencha o campo Telefone</Error>}
             </Col>
           </Col>
           <Col md="6" xs="12">
             <Label for="mensagem">Mensagem*: </Label>
-            <textarea onChange={handleChange} type="textarea" name="message" id="mensagem" ref={register({ required: true })}></textarea>
+            <textarea type="textarea" name="message" id="mensagem" ref={register({ required: true })}></textarea>
             {errors.message && <Error>Por favor, preencha o campo Message</Error>}
           </Col>
           <Col md='12' className="submit-button">
