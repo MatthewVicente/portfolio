@@ -25,6 +25,16 @@ const ContatoContainer = styled.div`
   }
 `;
 
+const Error = styled.div`
+  width: 70%;
+  color: #721c24;
+  margin-top: 30px;
+  border-radius: 10px;
+  border-color: #f5c6cb;
+  padding: 15px;
+  background-color: #f8d7da;
+`;
+
 const Contato = () => {
 
   const [contato, setContato] = useState({
@@ -33,19 +43,25 @@ const Contato = () => {
     telefone: '',
     message: ''
   });
+  const [enviando, setEnviando] = useState(false);
+  const [erro, setErro] = useState('');
 
   const service_id = process.env.REACT_APP_EMAILJS_SERVICE_ID;
   const  template_id = process.env.REACT_APP_EMAIJS_TEMPLATE_ID;
   const user_id = process.env.REACT_APP_EMAILJS_USER_ID;
 
   const handleSubmit = (e) => {
+    setEnviando(true);
     e.preventDefault();
 
     emailjs.sendForm(service_id, template_id, e.target, user_id)
       .then((result) => {
         console.log(result.text);
+        setEnviando(false);
+        setErro('');
       }, (error) => {
         console.log(error.text);
+        setErro(error.text);
       });
   }
 
@@ -63,12 +79,12 @@ const Contato = () => {
         <Row>
           <Col md="6" xs="12">
             <Col md="12">
-              <Label for="email">Email:</Label>
-              <Input onChange={handleChange} type="email" name="email" id="email" placeholder="E.x.: email@email.com" />
-            </Col>
-            <Col md="12">
               <Label for="nome">Nome:</Label>
               <Input onChange={handleChange} name="nome" id="nome" />
+            </Col>
+            <Col md="12">
+              <Label for="email">Email:</Label>
+              <Input onChange={handleChange} type="email" name="email" id="email" placeholder="E.x.: email@email.com" />
             </Col>
             <Col md="12">
               <Label>Telefone:</Label>
@@ -79,8 +95,11 @@ const Contato = () => {
             <Label for="mensagem">Mensagem: </Label>
             <Input onChange={handleChange} type="textarea" name="message" id="mensagem" />
           </Col>
-          <Col md="12" className="submit-button">
-            <Button color="success">Enviar</Button>
+          {erro && <Col md="9">
+            <Error>{erro}</Error>
+          </Col>}
+          <Col md={erro ? '3' : '12'} className="submit-button">
+            <Button color="success" disabled={enviando}>{enviando ? "Enviando..." : "Enviar"}</Button>
           </Col>
         </Row>
       </FormGroup>
