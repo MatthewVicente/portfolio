@@ -34,7 +34,7 @@ const ContatoContainer = styled.div`
 
 const Error = styled.div`
   width: 70%;
-  color: #721c24;
+  color: #ce0f0f;
   margin-top: 30px;
   border-radius: 10px;
   border-color: #f5c6cb;
@@ -79,6 +79,7 @@ const Contato = () => {
   }
 
   return <ContatoContainer>
+    <h1 id="contato">Contato</h1>
     <Form id="contact-form" onSubmit={handleSubmit(onSubmit)}>
       <FormGroup>
         <Row>
@@ -86,23 +87,23 @@ const Contato = () => {
             <Col md="12">
               <Label for="email">Email*:</Label>
               <input onChange={handleChange} type="email" name="email" id="email" placeholder="E.x.: email@email.com" ref={register({ required: true })}/>
-              {errors.email && <Error>Email is required</Error>}
+              {errors.email && <Error>Por favor, preencha o campo Email</Error>}
             </Col>
             <Col md="12">
               <Label for="nome">Nome*:</Label>
               <input onChange={handleChange} name="nome" id="nome" ref={register({ required: true })}/>
-              {errors.nome && <Error>Nome is required</Error>}
+              {errors.nome && <Error>Por favor, preencha o campo Nome</Error>}
             </Col>
             <Col md="12">
               <Label>Telefone:</Label>
               <input onChange={handleChange} name="telefone" ref={register}/>
-              {errors.telefone && <Error>Telefone is required</Error>}
+              {errors.telefone && <Error>Por favor, preencha o campo Telefone</Error>}
             </Col>
           </Col>
           <Col md="6" xs="12">
             <Label for="mensagem">Mensagem*: </Label>
             <textarea onChange={handleChange} type="textarea" name="message" id="mensagem" ref={register({ required: true })}></textarea>
-            {errors.message && <Error>Message is required</Error>}
+            {errors.message && <Error>Por favor, preencha o campo Message</Error>}
           </Col>
           <Col md='12' className="submit-button">
             <Button color="success" disabled={enviando}>{enviando ? "Enviando..." : "Enviar"}</Button>
