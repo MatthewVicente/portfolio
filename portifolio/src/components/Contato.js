@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import { Form, FormGroup, Label, Input, Button, Row, Col } from "reactstrap";
 import styled from "styled-components";
 import emailjs from "emailjs-com";
@@ -6,6 +7,12 @@ import emailjs from "emailjs-com";
 const ContatoContainer = styled.div`
   #contato {
     margin-bottom: 20px;
+  }
+
+  input, textarea {
+    width: 100%;
+    padding: 5px;
+    border-radius: 5px;
   }
 
   label {
@@ -44,27 +51,26 @@ const Contato = () => {
     message: ''
   });
   const [enviando, setEnviando] = useState(false);
-  const [erro, setErro] = useState('');
+
+  const { register, handleSubmit, errors } = useForm();
 
   const service_id = process.env.REACT_APP_EMAILJS_SERVICE_ID;
   const  template_id = process.env.REACT_APP_EMAIJS_TEMPLATE_ID;
   const user_id = process.env.REACT_APP_EMAILJS_USER_ID;
 
-  const handleSubmit = (e) => {
+  const onSubmit = data => {
     setEnviando(true);
-    e.preventDefault();
+    const refForm = document.getElementById("contact-form");
 
-    emailjs.sendForm(service_id, template_id, e.target, user_id)
+    emailjs.sendForm(service_id, template_id, refForm, user_id)
       .then((result) => {
         console.log(result.text);
         setEnviando(false);
-        setErro('');
       }, (error) => {
         console.log(error.text);
-        setErro(error.text);
       });
   }
-
+      
   let handleChange = (e) => {
     let nome = e.target.name;
     let value = e.target.value;
@@ -73,32 +79,32 @@ const Contato = () => {
   }
 
   return <ContatoContainer>
-    <h1 id="contato">Contato</h1>
-    <Form onSubmit={handleSubmit}>
+    <Form id="contact-form" onSubmit={handleSubmit(onSubmit)}>
       <FormGroup>
         <Row>
           <Col md="6" xs="12">
             <Col md="12">
-              <Label for="nome">Nome:</Label>
-              <Input onChange={handleChange} name="nome" id="nome" />
+              <Label for="email">Email*:</Label>
+              <input onChange={handleChange} type="email" name="email" id="email" placeholder="E.x.: email@email.com" ref={register({ required: true })}/>
+              {errors.email && <Error>Email is required</Error>}
             </Col>
             <Col md="12">
-              <Label for="email">Email:</Label>
-              <Input onChange={handleChange} type="email" name="email" id="email" placeholder="E.x.: email@email.com" />
+              <Label for="nome">Nome*:</Label>
+              <input onChange={handleChange} name="nome" id="nome" ref={register({ required: true })}/>
+              {errors.nome && <Error>Nome is required</Error>}
             </Col>
             <Col md="12">
               <Label>Telefone:</Label>
-              <Input onChange={handleChange} name="telefone" />
+              <input onChange={handleChange} name="telefone" ref={register}/>
+              {errors.telefone && <Error>Telefone is required</Error>}
             </Col>
           </Col>
           <Col md="6" xs="12">
-            <Label for="mensagem">Mensagem: </Label>
-            <Input onChange={handleChange} type="textarea" name="message" id="mensagem" />
+            <Label for="mensagem">Mensagem*: </Label>
+            <textarea onChange={handleChange} type="textarea" name="message" id="mensagem" ref={register({ required: true })}></textarea>
+            {errors.message && <Error>Message is required</Error>}
           </Col>
-          {erro && <Col md="9">
-            <Error>{erro}</Error>
-          </Col>}
-          <Col md={erro ? '3' : '12'} className="submit-button">
+          <Col md='12' className="submit-button">
             <Button color="success" disabled={enviando}>{enviando ? "Enviando..." : "Enviar"}</Button>
           </Col>
         </Row>
