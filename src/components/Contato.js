@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { Form, FormGroup, Label, Input, Button, Row, Col } from "reactstrap";
+import { Form, FormGroup, Label, Button, Row, Col } from "reactstrap";
 import styled from "styled-components";
 import emailjs from "emailjs-com";
 
@@ -42,7 +42,7 @@ const Error = styled.div`
   background-color: #f8d7da;
 `;
 
-const Contato = () => {
+const Contato = () => {  
   const [enviando, setEnviando] = useState(false);
 
   const { register, handleSubmit, errors } = useForm();
@@ -59,9 +59,10 @@ const Contato = () => {
       .then((result) => {
         console.log(result.text);
         setEnviando(false);
+        window.location.reload(true);
       }, (error) => {
         console.log(error.text);
-      });
+      }); 
   }
 
   return <ContatoContainer>
