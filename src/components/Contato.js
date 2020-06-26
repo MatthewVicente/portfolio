@@ -9,10 +9,26 @@ const ContatoContainer = styled.div`
     margin-bottom: 20px;
   }
 
-  input, textarea {
+  input, input:focus, textarea, textarea:focus {
     width: 100%;
     padding: 5px;
+    color: white;
+    border: 1px solid #484747;
     border-radius: 5px;
+    background: #484747;
+  }
+
+  /* Change the white to any color ;) */
+  input:-webkit-autofill,
+  input:-webkit-autofill:hover, 
+  input:-webkit-autofill:focus, 
+  input:-webkit-autofill:active  {
+    -webkit-box-shadow: 0 0 0 30px #484747 inset !important;
+  }
+
+  /*Change text in autofill textbox*/
+  input:-webkit-autofill {
+    -webkit-text-fill-color: white !important;
   }
 
   label {
@@ -23,7 +39,7 @@ const ContatoContainer = styled.div`
   }
 
   #mensagem {
-    height: 200px;
+    height: 213px;
   }
 
   .submit-button {
@@ -34,11 +50,11 @@ const ContatoContainer = styled.div`
 
 const Error = styled.div`
   width: 70%;
+  padding: 15px;
   color: #ce0f0f;
   margin-top: 30px;
   border-radius: 10px;
   border-color: #f5c6cb;
-  padding: 15px;
   background-color: #f8d7da;
 `;
 
@@ -83,7 +99,7 @@ const Contato = () => {
             </Col>
             <Col md="12">
               <Label>Telefone:</Label>
-              <input name="telefone" ref={register}/>
+              <input name="telefone" placeholder="E.x.: (xx) xxxxx-xxxx" ref={register}/>
               {errors.telefone && <Error>Por favor, preencha o campo Telefone</Error>}
             </Col>
           </Col>
