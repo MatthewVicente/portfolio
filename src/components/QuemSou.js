@@ -41,7 +41,7 @@ const QuemSou = () => {
 			evolui nas minhas habilidades como programador e como Game Dev.</p> 
 			
 			<p>Em paralelo com a faculdade eu trabalhei como <span>Web Developer</span>,
-			de Janeiro de 2018 até Março de 2020. Aprendi e trabalhei com diversas tecnologias de desenvolvimento Web durante esse período
+			de Janeiro de 2018 até Maio de 2020. Aprendi e trabalhei com diversas tecnologias de desenvolvimento Web durante esse período
 			como <span>HTML/CSS</span>, <span>JavaScript</span>, <span>JQuery</span>, <span>ReactJS</span> e <span>Laravel Framework com PHP</span>.
 			Trabalhei desenvolvendo novos sites, fazendo correções de bugs nos sistemas dos clientes da empresa e desenvolvendo novas funcionalidades.</p>
 		</div>

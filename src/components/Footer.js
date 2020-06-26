@@ -44,27 +44,18 @@ const FooterContainer = styled.div`
 	@media only screen and (max-width: 600px) {
 		display: flex;
 		.social {
-			width: 50%;
+			width: 100%;
 			.linkedin {
 				margin-left: 10px;
 				img {
-					width: 150%;
+					width: 100%;
 				}
 			}
 			.github {
 				margin-left: 30px;
 				img {
-					width: 25%;
+					width: 16%;
 				}
-			}
-		}
-
-		.contato {
-			width: 50%;
-			font-size: 16px;
-
-			img {
-				width: 20%;
 			}
 		}
 	}
@@ -83,10 +74,6 @@ const Footer = () => {
 					<img src={process.env.PUBLIC_URL+'/img/githubLogo.svg'} alt="" />
 				</a>
 			</div>
-		</div>
-		<div className="contato">
-			<img src={process.env.PUBLIC_URL+'/img/phone.svg'} alt="" />
-			<span>(11) 98975-9354</span>
 		</div>
 	</FooterContainer>
 }
