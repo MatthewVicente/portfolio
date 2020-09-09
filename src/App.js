@@ -30,7 +30,7 @@ function App() {
       title: "S.E.R.A STUDIO 3D",
       description: "Trabalhei nesse projeto como desenvolvedor freelancer para a empresa S.E.R.A Studio 3D. Utilizei do sistema de Blueprints da Unreal Engine para criar as mecânicas de movimentação, saúde, estamina, comida e de missões do game.",
       image: "/projetos/SERAGame.png",
-      link: "teset",
+      link: "",
       published: false
     }
   ]);
